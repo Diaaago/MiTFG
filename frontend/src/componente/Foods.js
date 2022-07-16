@@ -15,13 +15,13 @@ export default class Foods extends Component {
     })*/
 
     //this.getfood(this.state.id);
-    console.log('data', this)
+    
   }
-
   getfood = async (id) => {
     await axios.get('http://localhost:4000/food/' + id ).then(response => {
     this.setState({productos: response.data})
     })
+    
   }
 
   obtenerId = (e) => {
@@ -36,8 +36,6 @@ export default class Foods extends Component {
   }
 
   render() {
-    //const vot = JSON.stringify(this.state.productos.map(food => food.vot));
-    //const result = vot.split(',');
     const imgURL = this.state.productos.map(food => food.img);
     return (
       <>
@@ -47,11 +45,19 @@ export default class Foods extends Component {
             <button type="submit">buscar</button>
           </form>
         </div>
-          <img src = {imgURL}/>
+          <img src= {imgURL}/>
+          <div>{this.state.productos.map(food => food.id)}</div>
           <div>nombre del producto: {this.state.productos.map(food => food.product_name)}</div>
+          <div>categoria: {this.state.productos.map(food => food.categories)}</div>
           <div>marca: {this.state.productos.map(food => food.brand)}</div>
           <div>etiquetas: {this.state.productos.map(food => food.etiquetas)}</div>
           <div>paises de venta: {this.state.productos.map(food => food.country)}</div>
+          <div>manufacturing: {this.state.productos.map(food => food.manufacturing)}</div>
+          <div>packaging: {this.state.productos.map(food => food.packaging)}</div>
+          <div>palmoil: {this.state.productos.map(food => food.palmoil)}</div>
+          <div>size: {this.state.productos.map(food => food.size)}</div>
+          <div>storage: {this.state.productos.map(food => food.storage)}</div>
+          <div>transport: {this.state.productos.map(food => food.transport)}</div>
       </>
     )
   }

@@ -1,8 +1,7 @@
 const {Schema, model } = require ('mongoose');
 
 const foodSchema = new Schema({
-    username: String,
-    vot: Object
+    response: Object
 
 },{
     timestamps: true
