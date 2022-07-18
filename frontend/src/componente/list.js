@@ -4,8 +4,7 @@ export default class list extends Component {
   constructor(props){
     super(props);
     this.state = {
-      productos : [],
-      id: ''
+      productos : []
     }
   }
 
@@ -14,7 +13,6 @@ export default class list extends Component {
       this.setState({productos: response.data});
     })
 
-    this.getfood(this.state.id);
     
   }
   render() {
