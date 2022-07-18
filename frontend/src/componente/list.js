@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+const axios = require('axios');
 export default class list extends Component {
   constructor(props){
     super(props);
