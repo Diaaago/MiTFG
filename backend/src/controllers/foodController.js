@@ -1,5 +1,4 @@
 const foodController = {};
-const productosController = {};
 const axios = require('axios');
 const { response } = require('express');
 
@@ -36,22 +35,13 @@ foodController.getFoods = async (req, res) => {
             if(data[0].response[i].vot[cod]["en:transport"] == true) {
                 transportLike ++;
             }
-            totalProductos = i;
+            totalProductos = i ;
         }
+        totalProductos++;
     });
-    
-
     
     //console.log(vot[0].response)
     //console.log(vot[0].response[0].vot[cod]["en:manufacturing"])
-    
-    console.log('manufacturing', manufacturingLike)
-    console.log('packaging', packagingLike)
-    console.log('palm-oil', palmoilLike)
-    console.log('size', sizeLike)
-    console.log('storage', storageLike)
-    console.log('transport', transportLike)
-    console.log('total', totalProductos)
     data.push({
         id : req.params.id,
         img : productos["data"]["product"]["selected_images"]["front"]["display"]["fr"],
@@ -60,14 +50,30 @@ foodController.getFoods = async (req, res) => {
         brand : productos["data"]["product"]["brands"],
         etiquetas : productos["data"]["product"]["labels_old"],
         country: productos["data"]["product"]["countries"],
-        manufacturing: (manufacturingLike/totalProductos) *100,
-        packaging: (packagingLike/totalProductos) *100,
-        palmoil: (palmoilLike/totalProductos) *100,
-        size: (sizeLike/totalProductos) *100,
-        storage: (storageLike/totalProductos) *100,
-        transport: (transportLike/totalProductos) *100
+        manufacturing: Math.round((manufacturingLike/totalProductos) *100),
+        packaging: Math.round((packagingLike/totalProductos) *100),
+        palmoil: Math.round((palmoilLike/totalProductos) *100),
+        size: Math.round((sizeLike/totalProductos) *100),
+        storage: Math.round((storageLike/totalProductos) *100),
+        transport: Math.round((transportLike/totalProductos) *100)
     });
     res.json(data);
 }
- 
+foodController.getAllFoods = async (req, res) => {
+    const data = [];
+    const producto = await foodModel.find();
+    const cod = Object.keys(producto[0].response[0].vot );
+    console.log(cod[0])
+    const productos = await axios.get('https://world.openfoodfacts.org/api/v0/product/'+ cod[0] +'.json');
+    data.push({
+        id : req.params.id,
+        img : productos["data"]["product"]["selected_images"]["front"]["display"]["fr"],
+        product_name : productos["data"]["product"]["product_name"],
+        categories : productos["data"]["product"]["categories"],
+        brand : productos["data"]["product"]["brands"],
+        etiquetas : productos["data"]["product"]["labels_old"],
+        country: productos["data"]["product"]["countries"],
+    });
+}
+
 module.exports = foodController;

@@ -1,5 +1,14 @@
-import React, { Component, useState } from 'react'
+import React, { Component } from 'react'
 import axios from 'axios'
+import { Container } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
+import { NavDropdown } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 export default class Foods extends Component {
   constructor(props){
       super(props);
@@ -39,25 +48,44 @@ export default class Foods extends Component {
     const imgURL = this.state.productos.map(food => food.img);
     return (
       <>
-        <div>
-          <form onSubmit={this.buscar}>
-            <input type="text" onChange={this.obtenerId}/>
-            <button type="submit">buscar</button>
-          </form>
-        </div>
-          <img src= {imgURL}/>
-          <div>{this.state.productos.map(food => food.id)}</div>
-          <div>nombre del producto: {this.state.productos.map(food => food.product_name)}</div>
-          <div>categoria: {this.state.productos.map(food => food.categories)}</div>
-          <div>marca: {this.state.productos.map(food => food.brand)}</div>
-          <div>etiquetas: {this.state.productos.map(food => food.etiquetas)}</div>
-          <div>paises de venta: {this.state.productos.map(food => food.country)}</div>
-          <div>manufacturing: {this.state.productos.map(food => food.manufacturing)}</div>
-          <div>packaging: {this.state.productos.map(food => food.packaging)}</div>
-          <div>palmoil: {this.state.productos.map(food => food.palmoil)}</div>
-          <div>size: {this.state.productos.map(food => food.size)}</div>
-          <div>storage: {this.state.productos.map(food => food.storage)}</div>
-          <div>transport: {this.state.productos.map(food => food.transport)}</div>
+      <Nav className="mt-2">
+        <NavDropdown title="Menu" id="nav-dropdown">
+            <NavDropdown.Item href="list">Lista de productos</NavDropdown.Item>
+        </NavDropdown>
+        
+        <Form onSubmit={this.buscar}>
+          <Row className="align-items-center">
+            <Col xs="auto">
+              <InputGroup className="mb-2">
+                <Form.Control id="inlineFormInputGroup"  onChange={this.obtenerId} placeholder="Codigo de Barra" />
+              </InputGroup>
+            </Col>
+            <Col xs="auto">
+              <Button type="submit" className="mb-2">
+                Buscar
+              </Button>
+            </Col>
+          </Row>
+        </Form>
+      </Nav>
+      <Container>
+        <Row className="mt-2">
+          <Col><img src= {imgURL} class="rounded mx-auto d-block" alt=""/></Col>
+          <Col>
+            <Row className="mb-2">{this.state.productos.map(food => <p>Codigo de barra: {food.id}</p>)}</Row>  
+            <Row className="mb-2">{this.state.productos.map(food => <p>Nombre: {food.product_name}</p>)}</Row>
+            <Row className="mb-2">{this.state.productos.map(food => <p>Categorías: {food.categories}</p>)}</Row>
+            <Row className="mb-2">{this.state.productos.map(food => <p>Marca: {food.brand}</p>)}</Row>
+            <Row className="mb-2">{this.state.productos.map(food => <p>Paises de venta: {food.country}</p>)}</Row>
+            <Row className="mb-2">{this.state.productos.map(food => <p>manufacturing: {food.manufacturing}%</p>)}</Row>
+            <Row className="mb-2">{this.state.productos.map(food => <p>packaging: {food.packaging}%</p>)}</Row>
+            <Row className="mb-2">{this.state.productos.map(food => <p>palmoil: {food.palmoil}%</p>)}</Row>
+            <Row className="mb-2">{this.state.productos.map(food => <p>storage: {food.storage}%</p>)}</Row>
+            <Row className="mb-2">{this.state.productos.map(food => <p>transport: {food.transport}%</p>)}</Row>
+            <Row className="mb-2">{this.state.productos.map(food => <p>size: {food.size}%</p>)}</Row>
+          </Col>
+        </Row>
+      </Container>
       </>
     )
   }
