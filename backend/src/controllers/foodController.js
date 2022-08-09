@@ -63,16 +63,21 @@ foodController.getAllFoods = async (req, res) => {
     const data = [];
     const producto = await foodModel.find();
     const cod = Object.keys(producto[0].response[0].vot );
-    const productos = await axios.get('https://world.openfoodfacts.org/api/v0/product/'+ cod[0] +'.json');
-    data.push({
-        id : req.params.id,
-        img : productos["data"]["product"]["selected_images"]["front"]["display"]["fr"],
-        product_name : productos["data"]["product"]["product_name"],
-        categories : productos["data"]["product"]["categories"],
-        brand : productos["data"]["product"]["brands"],
-        etiquetas : productos["data"]["product"]["labels_old"],
-        country: productos["data"]["product"]["countries"],
-    });
+    for(let i = 0; i < cod.length; i++) {
+        await axios.get('https://world.openfoodfacts.org/api/v0/product/'+ cod[i] +'.json').then(productos => {
+            data.push({
+                id : cod[i] + ',',
+                img : productos["data"]["product"]["selected_images"]["front"]["display"]["fr"],
+                product_name : productos["data"]["product"]["product_name"],
+                categories : productos["data"]["product"]["categories"],
+                brand : productos["data"]["product"]["brands"],
+                etiquetas : productos["data"]["product"]["labels_old"],
+                country: productos["data"]["product"]["countries"],
+            })
+        })
+        
+    }
+    
     res.json(data);
 }
 

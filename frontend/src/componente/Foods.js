@@ -51,6 +51,7 @@ export default class Foods extends Component {
       <Nav className="mt-2">
         <NavDropdown title="Menu" id="nav-dropdown">
             <NavDropdown.Item href="list">Lista de productos</NavDropdown.Item>
+            <NavDropdown.Item href="produccion">Datos de productos</NavDropdown.Item>
         </NavDropdown>
         
         <Form onSubmit={this.buscar}>
