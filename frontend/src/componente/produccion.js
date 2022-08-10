@@ -10,18 +10,23 @@ export default class produccion extends Component {
     }
     componentDidMount() { 
         //this.readText() 
-        d3.csv('./nodo1.csv', function(csvdata){
-            for(let i = 0; i < 5; i++) {
-                console.log('eco2', csvdata[i].eco2)
-                
-                /*let eco2 = csvdata[i].eco2;
-                let humedad = csvdata[i].humedad;
-                let temperatura = csvdata[i].temperatura;
-                let tvoc = csvdata[i].tvoc;*/
+        d3.csv('./nodo1.csv', function(error, csvdata){
+            if(error){
+                console.log('error', error);
             }
-        
+            console.log('data', csvdata)
+            for(var i = 0; i < csvdata.length; i++) {
+                var eco2 = csvdata[i].eco2;
+                console.log('eco2', eco2)
+                var humedad = csvdata[i].humedad;
+                console.log('humedad', humedad)
+                var temperatura = csvdata[i].temperatura;
+                console.log('temp', temperatura)
+                var tvoc = csvdata[i].tvoc;
+                console.log('tvoc', tvoc)
+            }
+           
         })
-        console.log('this', this)
     }
 
     /*readText() {
