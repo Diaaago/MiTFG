@@ -1,0 +1,7 @@
+entity_id,entity_type,time_index,fiware_servicepath,__original_ngsi_entity__,tvoc,eco2,humedad,temperatura
+nodo1,nodo1,1627482065619,,,12.0,480.0,6.0,43.0
+nodo1,nodo1,1627482097260,,,9.0,465.0,7.0,43.0
+nodo1,nodo1,1627482160535,,,14.0,496.0,6.0,43.0
+nodo1,nodo1,1627482287075,,,16.0,508.0,6.0,43.0
+nodo1,nodo1,1627482413618,,,10.0,470.0,6.0,43.0
+nodo1,nodo1,1627482540151,,,7.0,446.0,6.0,43.0
