@@ -57,8 +57,8 @@ foodController.getFoods = async (req, res) => {
     res.json(data);
 }
 foodController.getAllFoods = async (req, res) => {
-    /*const data = [];
-    const producto = await foodModel.find();
+    const data = [];
+    const producto = await votModel.find();
     const cod = Object.keys(producto[0].vot);
     for (let i = 0; i < cod.length; i++) {
         await axios.get('https://world.openfoodfacts.org/api/v0/product/' + cod[i] + '.json').then(productos => {
@@ -72,9 +72,7 @@ foodController.getAllFoods = async (req, res) => {
                 country: productos["data"]["product"]["countries"],
             })
         })
-
-    }*/
-
+    }
     res.json(data);
 }
 

@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Menu from './menu';
 const axios = require('axios');
-export default class list extends Component {
-  constructor(props){
+
+export default class List extends Component {
+  constructor(props) {
     super(props);
     this.state = {
-      productos: []
+      productos: [],
     }
   }
 
@@ -16,13 +21,30 @@ export default class list extends Component {
     })
   }
 
+  search = (id) => {
+    console.log(id)
+  }
 
   render() {
     return (
       <>
-        <div>{this.state.productos.map(p => p.product_name)}</div>
+        <Menu></Menu>
+        <Row xs={1} md={4} className="g-4">
+          {this.state.productos.map(p => {
+            return (
+              <Col>
+                <Card style={{ width: '10rem' }}>
+                  <Card.Body>
+                    {p.img ? <Card.Img variant="top" src={p.img} onClick={() => this.search(p.id)} /> : <Card.Img variant="top" src="https://images.openfoodfacts.org/images/products/841/036/802/7731/front_fr.12.400.jpg" onClick={() => this.search(p.id)} />}
+                    <Card.Title>{p.product_name}</Card.Title>
+                  </Card.Body>
+                </Card>
+              </Col>
+            )
+          }
+          )}
+        </Row>
       </>
-      
     )
   }
 }
