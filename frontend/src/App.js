@@ -1,18 +1,20 @@
 import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Foods from './componente/Foods';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import List from './componente/list';
-import Produccion from './componente/produccion';
+import Grafica from './componente/grafica';
+import Info from './componente/foodInfo';
+
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Foods/>} />
-        <Route path='/list' element={<List/>} />
-        <Route path='/produccion' element={<Produccion/>} />
+        <Route path='/' element={<List />} />
+        <Route path='/grafica' element={<Grafica />} />
+        <Route path='/foodInfo/:id' element={<Info />} />
       </Routes>
     </BrowserRouter>
-    
+
   );
 }
 
