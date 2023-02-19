@@ -19,8 +19,10 @@ export default class produccion extends Component {
                 // Parsear el CSV
                 const rows = csv.split('\n');
                 const labels = [];
-                const values = [];
-                const title = rows[0].split(',')[7]
+                const valuesHumedad = [];
+                const valuesTemperatura = [];
+                const titleHumedad = rows[0].split(',')[7]
+                const titleTemperatura = rows[0].split(',')[8]
                 rows.slice(1).forEach(row => {
                     const columns = row.split(',');
                     const timestamp = columns[2];
@@ -32,18 +34,26 @@ export default class produccion extends Component {
                     const minutes = date.getMinutes();
                     const formattedDate = `${day}/${month}/${year} ${hour}:${minutes}`;
                     labels.push(formattedDate);
-                    values.push(parseInt(columns[7]));
+                    valuesHumedad.push(parseInt(columns[7]));
+                    valuesTemperatura.push(parseInt(columns[8]));
                 });
                 // Crear los datos de la gráfica
                 const data = {
                     labels: labels,
                     datasets: [
                         {
-                            label: title,
+                            label: titleHumedad,
                             backgroundColor: 'rgba(75,192,192,1)',
                             borderColor: 'rgba(0,0,0,1)',
                             borderWidth: 1,
-                            data: values
+                            data: valuesHumedad
+                        },
+                        {
+                            label: titleTemperatura,
+                            backgroundColor: 'rgba(75,255,255,1)',
+                            borderColor: 'rgba(0,0,255,1)',
+                            borderWidth: 1,
+                            data: valuesTemperatura
                         }
                     ]
                 };
