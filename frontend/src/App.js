@@ -12,6 +12,8 @@ function App() {
         <Route path='/' element={<List />} />
         <Route path='/grafica' element={<Grafica />} />
         <Route path='/foodInfo/:id' element={<Info />} />
+
+        <Route path='*' element={<Navigate to='/' />} />
       </Routes>
     </BrowserRouter>
 
