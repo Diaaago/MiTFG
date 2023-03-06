@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import { Nav } from 'react-bootstrap';
 import { NavDropdown } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { withRouter, useParams } from 'react-router-dom';
+import { Button, Row, Col } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
 
 export default class Menu extends Component {
 
@@ -41,7 +40,9 @@ export default class Menu extends Component {
                             </Col>
                             <Col xs="auto">
                                 <Link to={`/foodInfo/${this.state.id}`}>
-                                    <Button>Buscar</Button>
+                                    <Button type="primary" icon={<SearchOutlined/>} size={'large'}>
+                                        Buscar
+                                    </Button>
                                 </Link>
                             </Col>
                         </Row>
