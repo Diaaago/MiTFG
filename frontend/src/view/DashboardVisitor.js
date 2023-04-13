@@ -11,6 +11,8 @@ import { HomeOutlined } from '@ant-design/icons';
 import RedirectOnce from '../router/RedirectOnce';
 import GraficaHumedad from '../componente/grafica/GraficaHumedad'
 import GraficaTemp from '../componente/grafica/GraficaTemp'
+import GraficaEco2 from '../componente/grafica/GraficaEco2'
+import GraficaTvoc from '../componente/grafica/GraficaTvoc'
 import Menu from '../componente/Menu'
 
 const { Content, Footer } = Layout;
@@ -44,6 +46,8 @@ export default function DashboardVisitor(props) {
                         <Route path="/menu" element={<Menu/>} />
                         <Route path="/grafica/humedad" element={<GraficaHumedad/>} />
                         <Route path="/grafica/temperatura" element={<GraficaTemp/>} />
+                        <Route path="/grafica/Eco2" element={<GraficaEco2/>} />
+                        <Route path="/grafica/Tvoc" element={<GraficaTvoc/>} />
                         <Route path="/grafica" element={<Navigate to="/grafica/humedad" />} />
                         
 
