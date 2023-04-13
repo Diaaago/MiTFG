@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Bar, Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
-import Menu from './menu';
+//import Menu from '../menu';
 
 export default class produccion extends Component {
     constructor(props) {
@@ -65,7 +65,7 @@ export default class produccion extends Component {
     render() {
         return (
             <>
-                <Menu></Menu>
+                {/* <Menu></Menu> */}
                 <div>
                     {this.state.data?.labels && (
                         <Line

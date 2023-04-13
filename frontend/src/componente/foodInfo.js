@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios';
-import Menu from './menu';
+
 import { useParams } from 'react-router-dom';
 
 function Food() {
