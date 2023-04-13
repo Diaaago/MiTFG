@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Menu from './menu';
+
 const axios = require('axios');
 
 export default class List extends Component {
@@ -28,7 +28,7 @@ export default class List extends Component {
   render() {
     return (
       <>
-        <Menu></Menu>
+        
         <Row xs={1} md={4} className="g-4">
           {this.state.productos.map(p => {
             return (
