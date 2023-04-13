@@ -47,6 +47,14 @@ const items = [
                 label: 'Temperatura',
                 key: '/grafica/temperatura',
             },
+            {
+              label: 'ECo2',
+              key: '/grafica/eco2',
+            },
+            {
+              label: 'TVOC',
+              key: '/grafica/tvoc',
+            },
 
         ],
     },
