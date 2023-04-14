@@ -47,7 +47,7 @@ const items = [
                 key: '/grafica/temperatura',
             },
             {
-              label: 'ECo2',
+              label: 'eCo2',
               key: '/grafica/eco2',
             },
             {
