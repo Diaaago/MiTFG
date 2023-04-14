@@ -12,7 +12,7 @@ foodController.getFoods = async (req, res) => {
     let sizeLike = 0;
     let storageLike = 0;
     let transportLike = 0;
-    const cod = req.params.id;
+    const cod = (req.params.id).replace(/,/g,'');
     const productos = await axios.get('https://world.openfoodfacts.org/api/v0/product/' + cod + '.json');
     await votModel.find().then(data => {
         data.forEach(element => {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Row, Col, Skeleton } from 'antd';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const List = () => {
   const [productos, setProductos] = useState([]);
@@ -31,6 +32,7 @@ const List = () => {
     setHoveredCard(null);
   };
 
+
   if (loading) {
     return (
       <div
@@ -53,6 +55,7 @@ const List = () => {
       <Row gutter={[16, 16]}>
         {productos.map((p) => (
           <Col xs={24} sm={12} md={8} lg={8} xl={8}>
+            <Link to={`/foodInfo/${p.id}`}>         
             <Card
               style={{
                 width: '100%',
@@ -92,6 +95,7 @@ const List = () => {
                 style={{ textAlign: 'center', color: '#F0F2F5' }}
               />
             </Card>
+            </Link>
           </Col>
         ))}
       </Row>

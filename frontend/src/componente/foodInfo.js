@@ -25,7 +25,7 @@ function Food() {
 
   return (
     <>
-      <Menu></Menu>
+
       <Container>
         <Row className="mt-2">
           <Col><img src={imgURL} className="rounded mx-auto d-block" alt="" /></Col>
