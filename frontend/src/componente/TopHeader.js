@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import upmEtsisiLogo from '../fotos/upmEtsisiLogo.jpg';
 import { AreaChartOutlined, PictureOutlined, SearchOutlined } from '@ant-design/icons';
 import { Layout, Menu, Input } from 'antd';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Navigate } from 'react-router-dom';
 
 const { Header } = Layout;
 const { Search } = Input;
 
-const onSearch = (value) => console.log(value);
 
 const items = [
     {
@@ -73,6 +72,10 @@ export default function TopHeader() {
   const handleClick = (e) => {
     navigate(e.key);
   };
+
+const onSearch = (value) => {
+  navigate(`/foodInfo/${value}`);
+};
 
   const renderMenu = (menuList) => {
     return menuList.map((item) => {

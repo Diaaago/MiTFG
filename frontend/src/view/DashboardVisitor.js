@@ -14,7 +14,7 @@ import GraficaTemp from '../componente/grafica/GraficaTemp'
 import GraficaEco2 from '../componente/grafica/GraficaEco2'
 import GraficaTvoc from '../componente/grafica/GraficaTvoc'
 import Menu from '../componente/Menu'
-
+import FoodInfo from '../componente/foodInfo'
 const { Content, Footer } = Layout;
 
 export default function DashboardVisitor(props) {
@@ -49,8 +49,8 @@ export default function DashboardVisitor(props) {
                         <Route path="/grafica/temperatura" element={<GraficaTemp/>} />
                         <Route path="/grafica/Eco2" element={<GraficaEco2/>} />
                         <Route path="/grafica/Tvoc" element={<GraficaTvoc/>} />
-
-                        
+                        <Route path="/grafica" element={<Navigate to="/grafica/humedad" />} />
+                        <Route path="/foodInfo/:id" element={<FoodInfo/>}/>
 
                     </Routes>
                     
