@@ -6,7 +6,7 @@ const useJsonData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('../../../1.json');
+        const response = await fetch('../../../unir.json');
         const jsonData = await response.json();
 
         const allData = jsonData.reduce((acc, item) => {
