@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import { useParams } from 'react-router-dom';
 
-function Food() {
+function FoodInfo() {
   const [productos, setProductos] = useState([]);
   const { id } = useParams();
 
@@ -21,7 +21,7 @@ function Food() {
   }
 
   const product = productos[0];
-  const imgURL = product ? product.img : '';
+  const imgURL = product ? product.img : 'https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/rockcms/2022-03/plant-based-food-mc-220323-be3500.jpg';
 
   return (
     <>
@@ -48,4 +48,4 @@ function Food() {
   );
 }
 
-export default Food;
+export default FoodInfo;

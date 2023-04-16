@@ -3,7 +3,7 @@ import { Card, Row, Col, Skeleton } from 'antd';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const List = () => {
+const Menu = () => {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -83,7 +83,7 @@ const List = () => {
                     ) : (
                       <img
                         alt="example"
-                        src="https://images.openfoodfacts.org/images/products/841/036/802/7731/front_fr.12.400.jpg"
+                        src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/rockcms/2022-03/plant-based-food-mc-220323-be3500.jpg"
                         style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
                       />
                     )}
@@ -103,4 +103,4 @@ const List = () => {
   );
 };
 
-export default List;
+export default Menu;
