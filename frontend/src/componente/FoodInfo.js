@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 function FoodInfo() {
   const [productos, setProductos] = useState([]);
   const { id } = useParams();
-  const fallbackImage = 'https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/rockcms/2022-03/plant-based-food-mc-220323-be3500.jpg';
+  const fallbackImage = '/* https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/rockcms/2022-03/plant-based-food-mc-220323-be3500.jpg */';
 
   useEffect(() => {
     getfood(id);

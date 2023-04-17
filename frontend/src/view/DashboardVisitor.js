@@ -51,6 +51,7 @@ export default function DashboardVisitor(props) {
                             <Route path="/grafica/Tvoc" element={<GraficaTvoc />} />
                             <Route path="/grafica" element={<Navigate to="/grafica/humedad" />} />
                             <Route path="/foodInfo/:id" element={<FoodInfo />} />
+                            <Route path="/foodInfo" element={<Navigate to="/menu" />} />
 
                         </Routes>
 
