@@ -14,7 +14,7 @@ const FilterForm = ({ onFilterSubmit }) => {
 
   return (
     <Card title="筛选器" bordered={true} className="filter-form-card">
-      <Form layout="horizontal" form={form} onFinish={handleSubmit}>
+      <Form layout="vertical" form={form} onFinish={handleSubmit}>
         <Form.Item label="Categorías" name="categories" className="form-item">
           <Select
             className="select"

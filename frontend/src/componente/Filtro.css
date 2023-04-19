@@ -1,19 +1,25 @@
 .filter-form-card {
-    border-color: #00474f;
-  }
-  
-  .form-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 16px;
-  }
-  
-  .form-item .ant-form-item-label {
-    justify-content: flex-start;
-    text-align: left;
-    min-width: 130px;
-  }
-  
-  .select {
-    width: 100%;
-  }
+  border-width: 3px;
+  border-color: #91d5ff;
+  border-style: solid;
+}
+
+.form-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.form-item .ant-form-item-label {
+  justify-content: flex-start;
+  text-align: left;
+  min-width: 130px;
+}
+
+.select {
+  width: 100%;
+}
+
+.ant-select-selector {
+  width: 100% !important;
+}
