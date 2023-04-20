@@ -3,6 +3,8 @@ import { Card, Row, Col, Skeleton } from 'antd';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+import Filtro from './Filtro';
+
 const Menu = () => {
     const [productos, setProductos] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -24,9 +26,10 @@ const Menu = () => {
 
         fetchData();
     }, []);
-
+    
     const handleMouseEnter = (id) => {
         setHoveredCard(id);
+        console.log(id)
     };
 
     const handleMouseLeave = () => {
@@ -53,52 +56,64 @@ const Menu = () => {
 
     return (
         <>
-            <Row gutter={[16, 16]}>
-                {productos.map((p) => (
-                    <Col xs={24} sm={12} md={8} lg={8} xl={8}>
-                        <Link to={`/foodInfo/${p.id}`}>
-                            <Card
-                                style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    backgroundColor: hoveredCard === p.id ? 'rgba(0, 21, 41, 0.6)' : 'rgba(24, 144, 255, 0.6)',
-                                }}
-                                onMouseEnter={() => handleMouseEnter(p.id)}
-                                onMouseLeave={handleMouseLeave}
-                                cover={
-                                    <div
+<Row>
+                <Col xs={24} sm={24} md={6} lg={6} xl={6}>
+                    <div style={{ marginRight: '20px' }}>
+                        <Filtro />
+                    </div>
+                </Col>
+                <Col xs={24} sm={24} md={18} lg={18} xl={18}>
+                    <Row gutter={[16, 16]}>
+                        {productos.map((p) => (
+                            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
+                                <Link to={`/foodInfo/${p.id}`}>
+                                    <Card
                                         style={{
-                                            height: '160px',
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            alignItems: 'center',
-                                            paddingTop: '20px',
+                                            width: '100%',
+                                            height: '100%',
+                                            borderWidth: '5px',
+                                            borderColor: hoveredCard === p._id ? '#001529' : '#91d5ff',
+                                            borderStyle: 'solid',
+                                            /* backgroundColor: hoveredCard === p.id ? 'rgba(0, 21, 41, 0.6)' : 'rgba(24, 144, 255, 0.6)', */
                                         }}
+                                        onMouseEnter={() => handleMouseEnter(p._id)}
+                                        onMouseLeave={handleMouseLeave}
+                                        cover={
+                                            <div
+                                                style={{
+                                                    height: '160px',
+                                                    display: 'flex',
+                                                    justifyContent: 'center',
+                                                    alignItems: 'center',
+                                                    paddingTop: '20px',
+                                                }}
+                                            >
+                                                {p.image_url ? (
+                                                    <img
+                                                        alt="example"
+                                                        src={p.image_url}
+                                                        style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
+                                                    />
+                                                ) : (
+                                                    <img
+                                                        alt="example"
+                                                        src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/rockcms/2022-03/plant-based-food-mc-220323-be3500.jpg"
+                                                        style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
+                                                    />
+                                                )}
+                                            </div>
+                                        }
                                     >
-                                        {p.image_url ? (
-                                            <img
-                                                alt="example"
-                                                src={p.image_url}
-                                                style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
-                                            />
-                                        ) : (
-                                            <img
-                                                alt="example"
-                                                src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/rockcms/2022-03/plant-based-food-mc-220323-be3500.jpg"
-                                                style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
-                                            />
-                                        )}
-                                    </div>
-                                }
-                            >
-                                <Card.Meta
-                                    title={p.product_name}
-                                    style={{ textAlign: 'center', color: '#F0F2F5' }}
-                                />
-                            </Card>
-                        </Link>
-                    </Col>
-                ))}
+                                        <Card.Meta
+                                            title={p.product_name}
+                                            style={{ textAlign: 'center', color: '#F0F2F5' }}
+                                        />
+                                    </Card>
+                                </Link>
+                            </Col>
+                        ))}
+                    </Row>
+                </Col>
             </Row>
         </>
     );
