@@ -1,16 +1,68 @@
 const express = require('express');
 const router = express.Router();
-const foodController = require('./controllers/foodController'); // 引入 foodController 模块
+const foodController = require('./controllers/foodController');
+const productController = require('./controllers/productController');
 
 /**
  * @swagger
  * /products:
  *   get:
- *     summary: 获取产品列表
- *     description: 获取所有产品的列表
+ *     summary: get products
+ *     description: get products
  *     responses:
  *       200:
- *         description: 成功获取产品列表
+ *         description: successful get
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/products'
+  * /products/{productId}:
+ *   get:
+ *     summary: Get a product by ID
+ *     description: Returns a single product by its ID
+ *     parameters:
+ *       - in: path
+ *         name: productId
+ *         description: ID of the product to retrieve
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Successful operation
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/products'
+ *       404:
+ *         description: Product not found
+ *       500:
+ *         description: Internal server error
+ * 
+
+ * 
+ * /filtered-products:
+ *   post:
+ *     summary: get filter products
+ *     description: get filter products
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               categories:
+ *                 type: string
+ *               brands:
+ *                 type: string
+ *               countries:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: get products
  *         content:
  *           application/json:
  *             schema:
@@ -45,10 +97,31 @@ const foodController = require('./controllers/foodController'); // 引入 foodCo
  *         countries_en:
  *           type: string
  *           description: The country of origin of the product
+ * 
+ *     Product:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: string
+ *           description: The product ID
+ * 
  */
 
 router.get('/products', async (req, res) => {
     await foodController.getAllFoods(req, res);
 });
 
+router.get('/products/:productId', async (req, res) => {
+    await productController.getProductById(req, res);
+  
+  });
+
+router.post('/filtered-products', async (req, res) => {
+    await productController.getFilteredProducts(req, res);
+});
+
+
 module.exports = router;
+
+
+
