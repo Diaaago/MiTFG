@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const foodController = require('./controllers/foodController');
 const productController = require('./controllers/productController');
+const rateController = require('./controllers/rateController');
 
 /**
  * @swagger
@@ -41,7 +42,29 @@ const productController = require('./controllers/productController');
  *       500:
  *         description: Internal server error
  * 
-
+  * /rate-products/{productId}:
+ *   get:
+ *     summary: Get a product rate by ID
+ *     description: Get a product rate by ID
+ *     parameters:
+ *       - in: path
+ *         name: productId
+ *         description: ID of the product to retrieve
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Successful operation
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/rate'
+ *       404:
+ *         description: rate not found
+ *       500:
+ *         description: Internal server error
+ * 
  * 
  * /filtered-products:
  *   post:
@@ -98,6 +121,22 @@ const productController = require('./controllers/productController');
  *           type: string
  *           description: The country of origin of the product
  * 
+ *     rate:
+ *       type: object
+ *       properties:
+ *         manufacturing:
+ *           type: string
+ *         packaging:
+ *           type: string
+ *         palm-oil:
+ *           type: string
+ *         size:
+ *           type: string
+ *         storage:
+ *           type: string
+ *         transport:
+ *           type: string
+ * 
  *     Product:
  *       type: object
  *       properties:
@@ -113,11 +152,15 @@ router.get('/products', async (req, res) => {
 
 router.get('/products/:productId', async (req, res) => {
     await productController.getProductById(req, res);
-  
-  });
+
+});
 
 router.post('/filtered-products', async (req, res) => {
     await productController.getFilteredProducts(req, res);
+});
+
+router.get('/rate-products/:productId', async (req, res) => {
+    await rateController.getProductRate(req, res);
 });
 
 

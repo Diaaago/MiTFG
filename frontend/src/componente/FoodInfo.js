@@ -2,22 +2,29 @@ import React, { useState, useEffect } from 'react';
 import { Card } from 'antd';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Valoracion from './rate';
 
 function FoodInfo() {
   const [productos, setProductos] = useState([]);
+  const [rate, setRate] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
+  const getfood = async (id) => {
+    const response = await axios.get(`http://localhost:4000/products/${id}`);
+    setProductos(response.data);
+    setLoading(false);
+  };
+  
+  const getrate = async (id) => {
+    const response = await axios.get(`http://localhost:4000/rate-products/${id}`);
+    setRate(response.data);
+  };
+  
   useEffect(() => {
     getfood(id);
+    getrate(id);
   }, [id]);
-
-  const getfood = async (id) => {
-    await axios.get(`http://localhost:4000/products/${id}`).then(response => {
-      setProductos(response.data);
-      setLoading(false);
-    });
-  };
 
   const handleFallbackImage = (e) => {
     e.target.src = 'https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/rockcms/2022-03/plant-based-food-mc-220323-be3500.jpg';
@@ -27,11 +34,15 @@ function FoodInfo() {
   const tabList = [
     {
       key: 'tab1',
-      tab: 'Informacion del producto',
+      tab: 'Información del producto',
     },
     {
       key: 'tab2',
-      tab: 'Informacion nutricional',
+      tab: 'Información nutricional',
+    },
+    {
+      key: 'tab3',
+      tab: 'Valoraciones',
     },
   ];
 
@@ -54,6 +65,8 @@ function FoodInfo() {
       <p>Sal: {product.salt_100g}</p>
       <p>Sodio: {product.sodium_100g}</p>
     </div>,
+
+    tab3: <Valoracion rate={rate}></Valoracion>,
   };
 
   const [activeTabKey1, setActiveTabKey1] = useState('tab1');
@@ -66,7 +79,10 @@ function FoodInfo() {
   return (
     <>
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <img style={{ width: '200px' }} src={imgURL} />
+        <div>
+          <img style={{ width: '200px' }} src={imgURL} />
+        </div>
+
         <Card
           style={{
             width: '100%',
