@@ -3,6 +3,7 @@ const router = express.Router();
 const foodController = require('./controllers/foodController');
 const productController = require('./controllers/productController');
 const rateController = require('./controllers/rateController');
+const nodosController = require('./controllers/nodosController');
 
 /**
  * @swagger
@@ -19,6 +20,32 @@ const rateController = require('./controllers/rateController');
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/products'
+ * 
+ * /nodos:
+ *   post:
+ *     summary: post nodos
+ *     description: post nodos
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               start:
+ *                 type: string
+ *               end:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: successful psot
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/nodos'
+ * 
   * /products/{productId}:
  *   get:
  *     summary: Get a product by ID
@@ -159,6 +186,21 @@ const rateController = require('./controllers/rateController');
  *           type: string
  *         transport:
  *           type: string
+ *     nodos:
+ *       type: object
+ *       properties:
+ *         entity_id:
+ *           type: string
+ *         time_index:
+ *           type: integer
+ *         tvoc:
+ *           type: integer
+ *         eco2:
+ *           type: integer
+ *         humedad:
+ *           type: integer
+ *         temperatura:
+ *           type: integer
  * 
  *     Product:
  *       type: object
@@ -191,6 +233,9 @@ router.get('/rate-products/:productId', async (req, res) => {
     await rateController.getProductRate(req, res);
 });
 
+router.post('/nodos', async (req, res) => {
+    await nodosController.getNodos(req, res);
+});
 
 module.exports = router;
 
