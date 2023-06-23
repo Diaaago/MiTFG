@@ -37,7 +37,7 @@ const items = [
         key: '/grafica/eco2',
       },
       {
-        label: 'TVOC',
+        label: 'Tvoc',
         key: '/grafica/tvoc',
       },
 
@@ -110,6 +110,7 @@ export default function TopHeader() {
           style={{
             margin: '12px',
           }}
+          inputProps={{ inputMode: 'numeric', pattern: "[0-9]*" }}
         />
       </div>}
       <Menu

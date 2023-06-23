@@ -48,13 +48,18 @@ productController.getFilteredProducts = async (req, res) => {
 
 productController.getProductById = async (req, res) => {
   try {
+    const productName = req.query.productName;
+    const barcode = await Barcode.findOne({ product_name: productName });
     const id = mongoose.Types.ObjectId(req.params.productId);
+
     const product = await Product.findById(id);
+
     if (!product) {
       return res.status(404).json({ error: 'Product not found' });
     }
 
     const filteredProduct = {
+      barcode: barcode.barcode,
       _id: product._id ? product._id : "",
       product_name: product.product_name ? product.product_name : "",
       brand: product.brands ? product.brands : "",
@@ -100,6 +105,7 @@ productController.getProductByBarcode = async (req, res) => {
 
     const filteredProduct = {
       _id: foundProduct._id ? foundProduct._id : "",
+      barcode: barcode,
       product_name: foundProduct.product_name ? foundProduct.product_name : "",
       brand: foundProduct.brands ? foundProduct.brands : "",
       countries_en: foundProduct.countries_en ? foundProduct.countries_en : "",
