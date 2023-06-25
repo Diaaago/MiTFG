@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, Card } from 'antd';
 import './Filtro.css';
-import axios from 'axios';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Select } from 'antd';
-
+import Servicios from '../service/Servicios';
 
 /* const onSearch = (value) => {
   console.log('search:', value);
@@ -37,9 +36,9 @@ const Filtro = ({ onLoading }) => {
         nutriScore: selectedNutriScore,
       };
 
-      axios.post('http://localhost:4000/filtered-products', data)
+      Servicios.getFilteredProducts(data)
         .then(response => {
-          navigate('/filtered-products', { state: response.data });
+          navigate('/filtered-products', { state: response });
           onLoading(false)
         })
         .catch(error => {

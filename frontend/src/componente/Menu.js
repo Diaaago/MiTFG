@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Skeleton, Pagination, Spin } from 'antd';
-import axios from 'axios';
+ import { Row, Col, Skeleton, Pagination, Spin} from 'antd';
 import Products from './Products';
 import Filtro from './Filtro';
+import Servicios from '../service/Servicios';
 
 const Menu = () => {
     const [productos, setProductos] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [hoveredCard, setHoveredCard] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [loadingFiltered, setLoadingFiltered] = useState(false);
     
@@ -18,28 +17,19 @@ const Menu = () => {
 
     const fetchData = async (page, limit) => {
         setLoading(true);
-        try {
-            const response = await axios.get(`http://localhost:4000/products?page=${page}&limit=${limit}`);
-            setTimeout(() => {
-                setProductos(response.data);
-                setLoading(false);
-            }, 1000);
-        } catch (error) {
+        Servicios.getProducts(page,limit).then(data => {
+            setProductos(data);
+            setLoading(false);  
+        }).catch((error) => {
             console.error('Error fetching data:', error);
-        }
+        })
+           
+        
     };
 
     useEffect(() => {
         fetchData(currentPage, 12);
     }, [currentPage]);
-
-    const handleMouseEnter = (id) => {
-        setHoveredCard(id);
-    };
-
-    const handleMouseLeave = () => {
-        setHoveredCard(null);
-    };
 
     if (loading) {
         return (
