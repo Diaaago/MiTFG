@@ -7,7 +7,7 @@ class Servicios {
     return response.data;
   } 
 
-  getFoodInfoById = async (id,productName) => {
+/*   getFoodInfoById = async (id,productName) => {
     const response = await axios.get(`http://localhost:4000/products/${id}?productName=${encodeURIComponent(productName)}`);
     return response.data;
   } 
@@ -15,7 +15,7 @@ class Servicios {
   getFoodInfoByBarcode = async (id) => {
     const response = await axios.get(`http://localhost:4000/products/barcode/${id}`);
     return response.data;
-  } 
+  } */ 
 
   getFoodRate = async (id) => {
     const response = await axios.get(`http://localhost:4000/rate-products/${id}`);

@@ -123,7 +123,7 @@ const Grafica = ({ dataType, title }) => {
   const titleToTooltip = {
     'Humedad': 'Humedad',
     'Temperatura': 'Temperatura',
-    'Eco2': 'Dióxido de Carbono Equivalente',
+    'eCo2': 'Dióxido de Carbono Equivalente',
     'Tvoc': 'Total de Compuestos Orgánicos Volátiles'
   };
 
@@ -177,6 +177,67 @@ const Grafica = ({ dataType, title }) => {
         },
         smooth: true
       }
+      ]
+    }
+  }
+
+  const getBarOption = () => {
+    const maxData = dataStat.map(item => item.max);
+    const minData = dataStat.map(item => item.min);
+    const meanData = dataStat.map(item => item.mean);
+    return {
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
+        }
+      },
+      legend: {
+        data: ['Max', 'Min', 'Mean'],
+        orient: 'horizontal',
+        bottom: 0
+      },
+      xAxis: [
+        {
+          type: 'category',
+          data: dataStat.map(item => item.nodos),
+        }
+      ],
+      yAxis: [
+        {
+          type: 'value',
+          axisLabel: {
+            formatter: (value) => {
+              return `${value} ${dataTypeToUnit[dataType]}`;
+            },
+          },
+        }
+      ],
+      series: [
+        {
+          name: 'Max',
+          type: 'bar',
+          data: maxData,
+          itemStyle: {
+            color: '#f00'
+          },
+        },
+        {
+          name: 'Min',
+          type: 'bar',
+          data: minData,
+          itemStyle: {
+            color: '#87ceeb'
+          },
+        },
+        {
+          name: 'Mean',
+          type: 'bar',
+          data: meanData,
+          itemStyle: {
+            color: '#90ee90'
+          },
+        }
       ]
     }
   }
@@ -275,9 +336,18 @@ const Grafica = ({ dataType, title }) => {
         </div>
       ) : (
         dataStat && dataStat.length > 0 ? (
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <Table columns={columns} dataSource={dataStat} pagination={false} bordered={true} style={{ width: '85%' }} />
-          </div>
+          <Row>
+            <Col span={8}>
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+                <Table columns={columns} dataSource={dataStat} pagination={false} bordered={true} style={{ width: '100%' }} />
+              </div>
+            </Col>
+            <Col span={16}>
+
+              <ReactEcharts option={getBarOption()} />
+
+            </Col>
+          </Row>
         ) : (
           <span
 

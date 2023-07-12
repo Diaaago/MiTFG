@@ -62,7 +62,7 @@ function FoodInfo() {
   const tabList = [
     {
       key: 'tab1',
-      tab: 'Información del producto',
+      tab: 'Información del alimento',
     },
     {
       key: 'tab2',

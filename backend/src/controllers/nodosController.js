@@ -9,8 +9,8 @@ nodosController.getNodos = async (req, res) => {
     const nodos = await nodosModel.find(
       {
         time_index: {
-          $gte: new Date(parseInt(start)),  // 大于或等于开始日期
-          $lte: new Date(parseInt(end)),  // 小于或等于结束日期 
+          $gte: new Date(parseInt(start)),  
+          $lte: new Date(parseInt(end)),  
         }
       }
     )

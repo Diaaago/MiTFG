@@ -14,14 +14,14 @@ const FilteredProducts = () => {
     const [loadingFiltered, setLoadingFiltered] = useState(false);
     
     const handleLoadingFiltered = (isLoaded) => {
-        setLoadingFiltered(isLoaded); // 设置 dataLoaded 状态
+        setLoadingFiltered(isLoaded);
       };
-    // 计算当前页应该显示的产品范围
+    
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = data.products.slice(indexOfFirstProduct, indexOfLastProduct);
 
-    // 处理页码改变事件
+    
     const handlePageChange = (page) => {
         setCurrentPage(page);
     };
@@ -55,17 +55,9 @@ const FilteredProducts = () => {
             </>
         ) : <>
             <Row>
-                <Col xs={6} sm={6} md={6} lg={6} xl={6}>
-                    <div style={{ marginRight: '20px' }}>
-                        <Filtro />
-                    </div>
-                </Col>
-                <Products productos={currentProducts} />
-            </Row>
-            <Row>
-                <Col xs={18} sm={18} md={18} lg={18} xl={18} style={{ textAlign: 'center', marginTop: '-30%', marginLeft: '20%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <Col xs={24} sm={24} md={24} lg={24} xl={24} >
                 <Result404
-                        subTitle={'No se ha encontrado ningún producto'}/>
+                        subTitle={'No se ha encontrado ningún producto. Vuelva al Menu y reintentar.'}/>
                 </Col>
             </Row>
         </>

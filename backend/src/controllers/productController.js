@@ -45,7 +45,6 @@ productController.getFilteredProducts = async (req, res) => {
   }
 };
 
-
 productController.getProductById = async (req, res) => {
   try {
     const productName = req.query.productName;

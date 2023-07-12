@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
- import { Row, Col, Skeleton, Pagination, Spin} from 'antd';
+import { Row, Col, Skeleton, Pagination, Spin} from 'antd';
 import Products from './Products';
 import Filtro from './Filtro';
 import Servicios from '../service/Servicios';

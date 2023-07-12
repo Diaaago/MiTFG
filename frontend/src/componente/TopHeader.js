@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import upmEtsisiLogo from '../fotos/upmEtsisiLogo.jpg';
-import { AreaChartOutlined, PictureOutlined } from '@ant-design/icons';
+import { DashboardOutlined, PictureOutlined } from '@ant-design/icons';
 import { Layout, Menu, Input } from 'antd';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ const items = [
   {
     label: <b>Grafica</b>,
     key: '/grafica',
-    icon: <AreaChartOutlined />,
+    icon: <DashboardOutlined />,
     children: [
       {
         label: 'Humedad',
@@ -46,10 +46,12 @@ export default function TopHeader() {
   const location = useLocation();
   const [selectedKey, setSelectedKey] = useState(location.pathname);
 
+
   useEffect(() => {
     setSelectedKey(location.pathname);
   }, [location]);
 
+  
   const handleClick = (e) => {
     navigate(e.key);
   };
@@ -117,7 +119,8 @@ export default function TopHeader() {
       >
         {renderMenu(items)}
       </Menu>
-    </Header >)
+    </Header >
+    )
 
 }
 

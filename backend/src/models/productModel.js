@@ -1,4 +1,4 @@
-const { Schema, model, default: mongoose } = require('mongoose');
+const { Schema, default: mongoose } = require('mongoose');
 
 const productSchema = new Schema({
     _id: { type: mongoose.Schema.Types.ObjectId },

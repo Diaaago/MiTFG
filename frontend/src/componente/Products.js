@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Row, Col, Card, Pagination } from "antd";
+import { Row, Col, Card } from "antd";
 import { Link } from "react-router-dom";
 
 
 function Products({ productos }) {
+
     const [hoveredCard, setHoveredCard] = useState(null);
 
 
@@ -14,6 +15,7 @@ function Products({ productos }) {
     const handleMouseLeave = () => {
         setHoveredCard(null);
     };
+
     return (
 
         <Col xs={24} sm={24} md={18} lg={18} xl={18}>

@@ -1,14 +1,11 @@
 import './App.css';
 
-import IndexRouter from './router/IndexRoutes';
+import DashboardVisitor from './view/DashboardVisitor';
 
 
 function App(props) {
   return (
-
-
-  <IndexRouter></IndexRouter>
-
+  <DashboardVisitor/>
   );
 }
 
