@@ -25,7 +25,7 @@ Antes del despliegue, es necesario asegurar que los siguientes programas estén 
 
 ​																												**Code -> Download ZIP**
 
-![image-20230713181525694](C:\Users\Yilong Guo\AppData\Roaming\Typora\typora-user-images\image-20230713181525694.png)
+![image-20230713181525694](https://github.com/Diaaago/img/blob/main/image-20230713181525694.png)
 
 
 
