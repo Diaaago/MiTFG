@@ -33,7 +33,7 @@ Antes del despliegue, es necesario asegurar que los siguientes programas estén 
 
 ### Paso 3: Importar los datos al MongoDB
 
-Dentro de la carpeta descomprimida, "datos_1" y "datos_2" contienen cuatro ficheros de tipo JSON, que coinciden las  cuatro colecciones de la base de datos. 
+Dentro de la carpeta descomprimida, "datos_1" y "datos_2" contienen cuatro ficheros de tipo JSON en total, que coinciden las  cuatro colecciones de la base de datos. 
 
 
 
