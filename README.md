@@ -109,7 +109,7 @@ O el siguiente
 npm install -force
 ```
 
-!![image-20230713224644186](https://github.com/Diaaago/img/blob/main/image-20230713224722106.png)
+![image-20230713224644186](https://github.com/Diaaago/img/blob/main/image-20230713224644186.png)
 
 
 
