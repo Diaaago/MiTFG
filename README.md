@@ -122,13 +122,13 @@ npm install -force
 En backend:
 
 ```shell
-npm start
+npx nodemon src/index.js
 ```
 
 En frontend:
 
 ```shell
-npx nodemon src/index.js
+npm start
 ```
 
 ![image-20230713224448944](https://github.com/Diaaago/img/blob/main/image-20230713224448944.png)
