@@ -39,31 +39,31 @@ Dentro de la carpeta descomprimida, "datos_1" y "datos_2" contienen cuatro fiche
 
 **Conectar al base de datos en MongoDB Compass**
 
-https://github.com/Diaaago/img/blob/main/image-20230713181525694.png
+![image-20230713182554459](https://github.com/Diaaago/img/blob/main/image-20230713182554459.png)
 
 
 
 **Crear una base de datos denominada "openFood"**
 
-![image-20230713220241140](C:\Users\Yilong Guo\AppData\Roaming\Typora\typora-user-images\image-20230713220241140.png)
+![image-20230713220241140](https://github.com/Diaaago/img/blob/main/image-20230713220241140.png)
 
 
 
 **Crear las cuatro colecciones con mismo nombre de su fichero **
 
-![image-20230713220415391](C:\Users\Yilong Guo\AppData\Roaming\Typora\typora-user-images\image-20230713220415391.png)
+![image-20230713220415391](https://github.com/Diaaago/img/blob/main/image-20230713220415391.png)
 
 
 
 **Importar los datos correspondientes de JSON**
 
-![image-20230713220834245](C:\Users\Yilong Guo\AppData\Roaming\Typora\typora-user-images\image-20230713220834245.png)
+![image-20230713220834245](https://github.com/Diaaago/img/blob/main/image-20230713220834245.png)
 
 
 
 **Una vez finalizada la importación, la vista de openFood debería tener el siguiente aspecto:**
 
-![image-20230713221548008](C:\Users\Yilong Guo\AppData\Roaming\Typora\typora-user-images\image-20230713221548008.png)
+![image-20230713221548008](https://github.com/Diaaago/img/blob/main/image-20230713221548008.png)
 
 
 
@@ -73,7 +73,7 @@ https://github.com/Diaaago/img/blob/main/image-20230713181525694.png
 
 **Importar el proyecto en el Visual Studio Code**
 
-![image-20230713222650220](C:\Users\Yilong Guo\AppData\Roaming\Typora\typora-user-images\image-20230713222650220.png)
+![image-20230713222650220](https://github.com/Diaaago/img/blob/main/image-20230713222650220.png)
 
 
 
@@ -91,7 +91,7 @@ cd backend
 cd frontend
 ```
 
-![image-20230713224722106](C:\Users\Yilong Guo\AppData\Roaming\Typora\typora-user-images\image-20230713224722106.png)
+![image-20230713224722106](https://github.com/Diaaago/img/blob/main/image-20230713224722106.png)
 
 
 
@@ -109,7 +109,7 @@ O el siguiente
 npm install -force
 ```
 
-!![image-20230713224644186](C:\Users\Yilong Guo\AppData\Roaming\Typora\typora-user-images\image-20230713224644186.png)
+!![image-20230713224644186](https://github.com/Diaaago/img/blob/main/image-20230713224722106.png)
 
 
 
@@ -131,10 +131,10 @@ En frontend:
 npx nodemon src/index.js
 ```
 
-![image-20230713224448944](C:\Users\Yilong Guo\AppData\Roaming\Typora\typora-user-images\image-20230713224448944.png)
+![image-20230713224448944](https://github.com/Diaaago/img/blob/main/image-20230713224448944.png)
 
 
 
 **Después de unos segundos, se aparecerá la página inicial**
 
-![image-20230713225047346](C:\Users\Yilong Guo\AppData\Roaming\Typora\typora-user-images\image-20230713225047346.png)
+![image-20230713225047346](https://github.com/Diaaago/img/blob/main/image-20230713225047346.png)
