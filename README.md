@@ -39,7 +39,7 @@ Dentro de la carpeta descomprimida, "datos_1" y "datos_2" contienen cuatro fiche
 
 **Conectar al base de datos en MongoDB Compass**
 
-![image-20230713182554459]([image-20230713181525694.png](https://github.com/Diaaago/img/blob/main/image-20230713181525694.png))
+https://github.com/Diaaago/img/blob/main/image-20230713181525694.png
 
 
 
