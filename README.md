@@ -49,7 +49,7 @@ Dentro de la carpeta descomprimida, "datos_1" y "datos_2" contienen cuatro fiche
 
 
 
-**Crear las cuatro colecciones con mismo nombre de su fichero **
+**Crear las cuatro colecciones con mismo nombre de su fichero**
 
 ![image-20230713220415391](https://github.com/Diaaago/img/blob/main/image-20230713220415391.png)
 
